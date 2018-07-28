@@ -13,6 +13,7 @@ import image from "assets/img/profile-bg.jpg";
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 import AuthService from '../../helper/auth';
 import withAuth from '../../config/constants';
+import Bucket from './Bucket'
 const Auth = new AuthService();
 
 
@@ -62,6 +63,7 @@ class ProfilePage extends React.Component {
 
   render() {
     const { classes, ...rest } = this.props;
+    const {Transaction, FundCash, Dashboard} = this.state;
     const imageClasses = classNames(
       classes.imgRaised,
       classes.imgRoundedCircle,
@@ -98,9 +100,9 @@ class ProfilePage extends React.Component {
                   </h3>
                 </div>
                 <div style={{ height: '60%' }}>
-                  <Button color="light" simple style={{ fontSize: '17px' }}>Dashboard</Button>
-                  <Button color="light" simple style={{ fontSize: '17px' }}>Fund Card</Button>
-                  <Button color="light" simple style={{ fontSize: '17px' }}>Transaction</Button>
+                  <Button color="light" simple onClick={this.toggleDashboard} style={{ fontSize: '17px' }}>Dashboard</Button>
+                  <Button color="light" simple onClick={this.toggleFundCash} style={{ fontSize: '17px' }}>Bucket</Button>
+                  <Button color="light" simple onClick={this.toggleTransaction} style={{ fontSize: '17px' }}>Check Out</Button>
                   <Button color="light" simple onClick={this.handleLogout} style={{ fontSize: '17px' }}>Sign Out</Button>
                 </div>
                 <div style={{ height: '15%', paddingBottom: '2rem' }}>
@@ -110,8 +112,13 @@ class ProfilePage extends React.Component {
                 </div>
               </GridItem>
               <GridItem xs={9} style={{ height: '100%'}}>
-                <div style={{ height: '80%', backgroundColor: 'white' }}>
-                </div>
+                {Dashboard === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
+                </div>}
+                {FundCash === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
+                  <Bucket />
+                </div>}
+                { Transaction === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
+                </div>}
                 <div style={{ height: '15%', paddingTop: '1rem', paddingBottom: '2rem', position: 'sticky', float: 'right' }}>
                   <span style={{ paddingTop: '2rem', color: 'white', textTransform: 'Capitalize' }}>
                     namemy namemy
@@ -127,4 +134,4 @@ class ProfilePage extends React.Component {
   }
 }
 
-export default withStyles(profilePageStyle)(withAuth(ProfilePage));
+export default withStyles(profilePageStyle)(ProfilePage);

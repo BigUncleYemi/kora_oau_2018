@@ -30,90 +30,51 @@ import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 import image from "assets/img/bg7.jpg";
 
 
-const Signup = ({classes}) => (
+const Signup = ({classes, handleChange, e, state}) => (
   <form className={classes.form}>
     <CardHeader color="primary" className={classes.cardHeader}>
       <h2>Signup</h2>
     </CardHeader>
     <CardBody>
-      <CustomInput
-        labelText="First Name..."
-        id="first"
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "text",
-          endAdornment: (
-            <InputAdornment position="end">
-              <People className={classes.inputIconsColor} />
-            </InputAdornment>
-          )
-        }}
+      <TextField
+        id="Fullname"
+        label="Fullname"
+        value={state.fullname}
+        margin="normal"
       />
-      <CustomInput
-        labelText="Phone Name.."
-        id="phoneNo"
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "text",
-          endAdornment: (
-            <InputAdornment position="end">
-              <Phone className={classes.inputIconsColor} />
-            </InputAdornment>
-          )
-        }}
-      />
-      <CustomInput
-        labelText="User Name..."
-        id="userName"
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "text",
-          endAdornment: (
-            <InputAdornment position="end">
-              <People className={classes.inputIconsColor} />
-            </InputAdornment>
-          )
-        }}
-      />
-      <CustomInput
-        labelText="Email..."
+      <TextField
         id="email"
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "email",
-          endAdornment: (
-            <InputAdornment position="end">
-              <Email className={classes.inputIconsColor} />
-            </InputAdornment>
-          )
-        }}
+        label="email"
+        className={classes.textField}
+        value={state.email}
+        margin="normal"
       />
-      <CustomInput
-        labelText="Password"
-        id="pass"
-        value="yemi" 
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "password",
-          endAdornment: (
-            <InputAdornment position="end">
-              <LockOutline
-                className={classes.inputIconsColor}
-              />
-            </InputAdornment>
-          )
-        }}
+      <TextField
+        id="Phone Num"
+        label="Phone Num"
+        value={state.phoneNo}
+        margin="normal"
       />
+      <TextField
+        id="Username"
+        label="Username"
+        value={state.username}
+        margin="normal"
+      />
+      <TextField
+        id="Password"
+        label="Password"
+        className={classes.textField}
+        value={state.password}
+        margin="normal"
+      />
+      <Button
+        color="primary"
+        onClick={(e) => Login(e)}
+        className={classes.navLink}
+      >
+        Register
+      </Button>
       <input type="text" name="yemi" id="yemi" value="yemi" />
     </CardBody>
     <CardFooter className={classes.cardFooter}>
@@ -128,26 +89,26 @@ const Signup = ({classes}) => (
   </form>
 )
 
-const Login = ({ classes }) => (
-  <form className={classes.form}>
+const Login = ({ classes, Login, state }) => (
+  <form onSubmit={(e) => Login(e)} className={classes.form}>
     <CardHeader color="primary" className={classes.cardHeader}>
       <h2>Login</h2>
     </CardHeader>
     <CardBody>
-      <TextField
-        id="Email"
-        label="Email"
-        value={this.state.email}
-        margin="normal"
-      />
-      <TextField
-        id="Password"
-        label="Password"
-        className={classes.textField}
-        value={this.state.password}
-        onChange={this.handleChange('name')}
-        margin="normal"
-      />
+      <div style={{display: 'inline-block'}}>
+        <label htmlFor="username">Username</label>
+        <input ref={(input) => this.username = input} type="text" required />
+        <label htmlFor="password">Password</label>
+        <input ref={(input) => this.password = input} type="password" required />
+        <Button
+          color="primary"
+          onClick={(e)=>Login(e)}
+          className={classes.navLink}
+          type="submit"
+        >
+          Login
+      </Button>
+      </div>
     </CardBody>
     <CardFooter className={classes.cardFooter}>
       <ListItem className={classes.listItem}>
@@ -167,8 +128,14 @@ class LoginPage extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden"
+      cardAnimaton: "cardHidden",
+      username: '',
+      password: '',
+      fullname: '',
+      phoneNo: '',
+      email: ''
     };
+    this.Login = this.Login.bind(this);
   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
@@ -178,6 +145,22 @@ class LoginPage extends React.Component {
       }.bind(this),
       700
     );
+  }
+
+  Login(e) {
+    e.preventDefault();
+    var post = {
+      username: this.username.value,
+      password: this.password.value
+    }
+    console.log( )
+    this.Auth.login(post.username, post.password)
+      .then(res => {
+        this.props.history.replace("/");
+      })
+      .catch(err => {
+        alert(err)
+      })
   }
 
 
@@ -208,8 +191,8 @@ class LoginPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  {match.path === "/Login" && <Login classes={classes} />}
-                  {match.path === "/Signup" && <Signup classes={classes} />}
+                  {match.path === "/Login" && <Login classes={classes} Login={this.Login} handleChange={this.handleChange} state={this.state} />}
+                  {match.path === "/Signup" && <Signup classes={classes} handleChange={this.handleChange} state={this.state} />}
                 </Card>
               </GridItem>
             </GridContainer>
