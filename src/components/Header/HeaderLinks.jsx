@@ -31,7 +31,7 @@ function HeaderLinks({ ...props }) {
           Home
         </Button>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id=""
           title="Frequently Asked Question"
@@ -46,7 +46,7 @@ function HeaderLinks({ ...props }) {
             Faq
           </Button>
         </Tooltip>
-      </ListItem>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
         <Tooltip
           id="About"
@@ -70,7 +70,7 @@ function HeaderLinks({ ...props }) {
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
-         <Link to={"/login-page"} className={classes.link}>
+         <Link to={"/Login"} className={classes.link}>
           <Button color="transparent" className={classes.navLink}>
             Login
           </Button>

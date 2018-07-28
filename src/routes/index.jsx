@@ -4,9 +4,10 @@ import ProfilePage from "views/ProfilePage/ProfilePage.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 
 var indexRoutes = [
-  { path: "/", name: "LandingPage", component: LandingPage },
+  { path: "/Signup", name: "SignUp", component: LoginPage },
   { path: "/profile-page", name: "ProfilePage", component: ProfilePage },
-  { path: "/login-page", name: "LoginPage", component: LoginPage }
+  { path: "/Login", name: "LoginPage", component: LoginPage },
+  { path: "/", name: "LandingPage", component: LandingPage }
 ];
 
 export default indexRoutes;

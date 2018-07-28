@@ -2,10 +2,14 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import {Link} from "react-router-dom";
+
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import LockOutline from "@material-ui/icons/LockOutline";
 import People from "@material-ui/icons/People";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -23,6 +27,125 @@ import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 import image from "assets/img/bg7.jpg";
 
+
+const Signup = ({classes}) => (
+  <form className={classes.form}>
+    <CardHeader color="primary" className={classes.cardHeader}>
+      <h2>Signup</h2>
+    </CardHeader>
+    <CardBody>
+      <CustomInput
+        labelText="First Name..."
+        id="first"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "text",
+          endAdornment: (
+            <InputAdornment position="end">
+              <People className={classes.inputIconsColor} />
+            </InputAdornment>
+          )
+        }}
+      />
+      <CustomInput
+        labelText="Email..."
+        id="email"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "email",
+          endAdornment: (
+            <InputAdornment position="end">
+              <Email className={classes.inputIconsColor} />
+            </InputAdornment>
+          )
+        }}
+      />
+      <CustomInput
+        labelText="Password"
+        id="pass"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "password",
+          endAdornment: (
+            <InputAdornment position="end">
+              <LockOutline
+                className={classes.inputIconsColor}
+              />
+            </InputAdornment>
+          )
+        }}
+      />
+    </CardBody>
+    <CardFooter className={classes.cardFooter}>
+      <ListItem className={classes.listItem}>
+        <Link to={"/Login"} className={classes.link}>
+          <Button color="transparent" className={classes.navLink}>
+            or Login
+        </Button>
+        </Link>
+      </ListItem>
+    </CardFooter>
+  </form>
+)
+
+const Login = ({ classes }) => (
+  <form className={classes.form}>
+    <CardHeader color="primary" className={classes.cardHeader}>
+      <h2>Login</h2>
+    </CardHeader>
+    <CardBody>
+      <CustomInput
+        labelText="Email..."
+        id="email"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "email",
+          endAdornment: (
+            <InputAdornment position="end">
+              <Email className={classes.inputIconsColor} />
+            </InputAdornment>
+          )
+        }}
+      />
+      <CustomInput
+        labelText="Password"
+        id="pass"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "password",
+          endAdornment: (
+            <InputAdornment position="end">
+              <LockOutline
+                className={classes.inputIconsColor}
+              />
+            </InputAdornment>
+          )
+        }}
+      />
+    </CardBody>
+    <CardFooter className={classes.cardFooter}>
+      <ListItem className={classes.listItem}>
+        <Button
+          color="transparent"
+          href="/Signup"
+          className={classes.navLink}
+        >
+          or SignUp
+        </Button>
+      </ListItem>
+    </CardFooter>
+  </form>
+)
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -40,15 +163,21 @@ class LoginPage extends React.Component {
       700
     );
   }
+
+
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, match, ...rest } = this.props;
     return (
       <div>
         <Header
-          absolute
           color="transparent"
-          brand="Material Kit React"
+          brand="Shomolu.com"
           rightLinks={<HeaderLinks />}
+          fixed
+          changeColorOnScroll={{
+            height: 200,
+            color: "white"
+          }}
           {...rest}
         />
         <div
@@ -63,95 +192,8 @@ class LoginPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form className={classes.form}>
-                    <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Login</h4>
-                      <div className={classes.socialLine}>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
-                      </div>
-                    </CardHeader>
-                    <p className={classes.divider}>Or Be Classical</p>
-                    <CardBody>
-                      <CustomInput
-                        labelText="First Name..."
-                        id="first"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "text",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <People className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      <CustomInput
-                        labelText="Email..."
-                        id="email"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      <CustomInput
-                        labelText="Password"
-                        id="pass"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "password",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <LockOutline
-                                className={classes.inputIconsColor}
-                              />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                    </CardBody>
-                    <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
-                        Get started
-                      </Button>
-                    </CardFooter>
-                  </form>
+                  {match.path === "/Login" && <Login classes={classes} />}
+                  {match.path === "/Signup" && <Signup classes={classes} />}
                 </Card>
               </GridItem>
             </GridContainer>
