@@ -24,30 +24,6 @@ import WorkSection from "./Sections/WorkSection.jsx";
 
 const dashboardRoutes = [];
 
-const Info =()=>(
-  <div className="jumbotron text-center" style={{ background: ' linear-gradient(to right, #000428, #004e92)', color: 'white' }} >
-    <div className="container" style={{ display: 'flex', flexWrap: 'wrap' }}>
-      <div className="col-sm-4">
-        <i className="fa fa-globe" style={{ fontSize: '30px' }} />
-        <p>Vist Our Website</p>
-        <p>www.Shomolu.com</p>
-      </div>
-      <div className="col-sm-4">
-        <i className="fa fa-phone" style={{ fontSize: '30px' }} />
-        <p>Call Us today.</p>
-        <p>+234XXXXXXXXXX</p>
-      </div>
-      <div className="col-sm-4">
-        <i className="fa fa-comments" style={{ fontSize: '30px' }} />
-        <p>Chat With Us on Our Social Media Platforms.</p>
-        <p style={{ marginBottom: '0px' }}><i className="fa fa-facebook-square" /> : <span>Shomolu.com</span></p>
-        <p style={{ marginBottom: '0px' }}><i className="fa fa-twitter" /> : <span>@Shomolu.com</span></p>
-        <p style={{ marginBottom: '0px' }}><i className="fa fa-instagram" /> : <span>Shomolu.com</span></p>
-      </div>
-    </div>
-  </div>
-);
-
 class LandingPage extends React.Component {
   render() {
     const {
@@ -71,7 +47,7 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Let Your Transition Starts With Us.</h1>
+                <h1 className={classes.title}>Let Your Transaction Start With Us.</h1>
                 <h4>
                   Protecting your card and providing an alternative is what we do.
                 </h4>

@@ -1,6 +1,6 @@
 import Components from "views/Components/Components.jsx";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
-import ProfilePage from "views/Dashboard/Dashboard.jsx";
+import Dashboard from "views/Dashboard/Dashboard.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 
 var indexRoutes = [

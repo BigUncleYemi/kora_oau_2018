@@ -11,6 +11,7 @@ import People from "@material-ui/icons/People";
 import Phone from "@material-ui/icons/Phone"
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import TextField from '@material-ui/core/TextField';
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -98,6 +99,7 @@ const Signup = ({classes}) => (
       <CustomInput
         labelText="Password"
         id="pass"
+        value="yemi" 
         formControlProps={{
           fullWidth: true
         }}
@@ -112,6 +114,7 @@ const Signup = ({classes}) => (
           )
         }}
       />
+      <input type="text" name="yemi" id="yemi" value="yemi" />
     </CardBody>
     <CardFooter className={classes.cardFooter}>
       <ListItem className={classes.listItem}>
@@ -131,37 +134,19 @@ const Login = ({ classes }) => (
       <h2>Login</h2>
     </CardHeader>
     <CardBody>
-      <CustomInput
-        labelText="Email..."
-        id="email"
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "email",
-          endAdornment: (
-            <InputAdornment position="end">
-              <Email className={classes.inputIconsColor} />
-            </InputAdornment>
-          )
-        }}
+      <TextField
+        id="Email"
+        label="Email"
+        value={this.state.email}
+        margin="normal"
       />
-      <CustomInput
-        labelText="Password"
-        id="pass"
-        formControlProps={{
-          fullWidth: true
-        }}
-        inputProps={{
-          type: "password",
-          endAdornment: (
-            <InputAdornment position="end">
-              <LockOutline
-                className={classes.inputIconsColor}
-              />
-            </InputAdornment>
-          )
-        }}
+      <TextField
+        id="Password"
+        label="Password"
+        className={classes.textField}
+        value={this.state.password}
+        onChange={this.handleChange('name')}
+        margin="normal"
       />
     </CardBody>
     <CardFooter className={classes.cardFooter}>

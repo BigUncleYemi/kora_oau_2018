@@ -20,7 +20,7 @@ class ProductSection extends React.Component {
       <div className={classes.section} id="#About">
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Let's talk product</h2>
+            <h2 className={classes.title}>Let's talk Business</h2>
             <h5 className={classes.description}>
               
             </h5>
@@ -31,7 +31,7 @@ class ProductSection extends React.Component {
             <GridItem xs={12} sm={12} md={4}>
               <InfoArea
                 title="Secure"
-                description="We have Secure you money and prevent you from exposing your card details."
+                description="We Secure your money and without exposing your card details."
                 icon={VpnLock}
                 iconColor="info"
                 vertical
@@ -40,7 +40,7 @@ class ProductSection extends React.Component {
             <GridItem xs={12} sm={12} md={4}>
               <InfoArea
                 title="Easy to Use"
-                description="Card is ready in few steps and you get a dashboard to monitor transition."
+                description="Card is ready in few steps and you get a dashboard to monitor transaction."
                 icon={VerifiedUser}
                 iconColor="success"
                 vertical
