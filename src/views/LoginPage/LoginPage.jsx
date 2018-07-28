@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import Email from "@material-ui/icons/Email";
 import LockOutline from "@material-ui/icons/LockOutline";
 import People from "@material-ui/icons/People";
+import Phone from "@material-ui/icons/Phone"
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // core components
@@ -37,6 +38,36 @@ const Signup = ({classes}) => (
       <CustomInput
         labelText="First Name..."
         id="first"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "text",
+          endAdornment: (
+            <InputAdornment position="end">
+              <People className={classes.inputIconsColor} />
+            </InputAdornment>
+          )
+        }}
+      />
+      <CustomInput
+        labelText="Phone Name.."
+        id="phoneNo"
+        formControlProps={{
+          fullWidth: true
+        }}
+        inputProps={{
+          type: "text",
+          endAdornment: (
+            <InputAdornment position="end">
+              <Phone className={classes.inputIconsColor} />
+            </InputAdornment>
+          )
+        }}
+      />
+      <CustomInput
+        labelText="User Name..."
+        id="userName"
         formControlProps={{
           fullWidth: true
         }}
@@ -175,7 +206,7 @@ class LoginPage extends React.Component {
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
-            height: 200,
+            height: 50,
             color: "white"
           }}
           {...rest}
