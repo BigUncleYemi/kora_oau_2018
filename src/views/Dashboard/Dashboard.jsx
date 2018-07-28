@@ -9,6 +9,13 @@ import Footer from "components/Footer/Footer.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
+import Card from "components/Card/Card.jsx";
+import CardBody from "components/Card/CardBody.jsx";
+import CardHeader from "components/Card/CardHeader.jsx";
+import CardFooter from "components/Card/CardFooter.jsx";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import TextField from '@material-ui/core/TextField';
 import image from "assets/img/profile-bg.jpg";
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 import AuthService from '../../helper/auth';
@@ -25,6 +32,10 @@ class ProfilePage extends React.Component {
       Transaction: false,
       FundCash: false
     }
+    this.toggleDashboard = this.toggleDashboard.bind(this);
+    this.toggleFundCash = this.toggleFundCash.bind(this);
+    this.toggleTransaction = this.toggleTransaction.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
   
 
@@ -102,7 +113,7 @@ class ProfilePage extends React.Component {
                 <div style={{ height: '60%' }}>
                   <Button color="light" simple onClick={this.toggleDashboard} style={{ fontSize: '17px' }}>Dashboard</Button>
                   <Button color="light" simple onClick={this.toggleFundCash} style={{ fontSize: '17px' }}>Bucket</Button>
-                  <Button color="light" simple onClick={this.toggleTransaction} style={{ fontSize: '17px' }}>Check Out</Button>
+                  <Button color="light" simple onClick={this.toggleTransaction} style={{ fontSize: '17px' }}>Pending Bucket</Button>
                   <Button color="light" simple onClick={this.handleLogout} style={{ fontSize: '17px' }}>Sign Out</Button>
                 </div>
                 <div style={{ height: '15%', paddingBottom: '2rem' }}>
@@ -112,12 +123,29 @@ class ProfilePage extends React.Component {
                 </div>
               </GridItem>
               <GridItem xs={9} style={{ height: '100%'}}>
-                {Dashboard === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
-                </div>}
+                {Dashboard === true &&<div>
+                                      <CardHeader color="primary" className={classes.cardHeader}>
+                                        <h2>Bola foods</h2>
+                                      </CardHeader>
+                                       <CardBody>
+                                          <p>Amount</p>
+                                          <span>$0</span>
+                                        </CardBody>
+                                        <CardFooter className={classes.cardFooter}>
+                                          <ListItem className={classes.listItem}>
+                                            <Link to={"/Login"} className={classes.link}>
+                                              <Button color="transparent" className={classes.navLink}>
+                                                or Login
+                                            </Button>
+                                            </Link>
+                                          </ListItem>
+                                        </CardFooter>
+                                        </div>}
                 {FundCash === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
-                  <Bucket />
+                  <Bucket rowHeaders={['Customer', 'Amount', 'Date']} rows={['','','']} />
                 </div>}
                 { Transaction === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
+                  <Bucket rowHeaders={['Customer', 'Amount', 'Date']} rows={['','','']}/>
                 </div>}
                 <div style={{ height: '15%', paddingTop: '1rem', paddingBottom: '2rem', position: 'sticky', float: 'right' }}>
                   <span style={{ paddingTop: '2rem', color: 'white', textTransform: 'Capitalize' }}>
