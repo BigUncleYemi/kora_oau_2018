@@ -131,15 +131,6 @@ class ProfilePage extends React.Component {
                                           <p>Amount</p>
                                           <span>$0</span>
                                         </CardBody>
-                                        <CardFooter className={classes.cardFooter}>
-                                          <ListItem className={classes.listItem}>
-                                            <Link to={"/Login"} className={classes.link}>
-                                              <Button color="transparent" className={classes.navLink}>
-                                                or Login
-                                            </Button>
-                                            </Link>
-                                          </ListItem>
-                                        </CardFooter>
                                         </div>}
                 {FundCash === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
                   <Bucket rowHeaders={['Customer', 'Amount', 'Date']} rows={['','','']} />
