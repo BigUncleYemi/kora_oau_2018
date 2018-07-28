@@ -32,7 +32,7 @@ function Footer({ ...props }) {
                 className={classes.block}
                 target="_blank"
               >
-                Shomolu.com
+                PayBucket
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
@@ -70,7 +70,7 @@ function Footer({ ...props }) {
             className={aClasses}
             target="_blank"
           >
-            Shomolu.com
+            PayBucket
           </a>{" "}
           for a secure Transition.
         </div>

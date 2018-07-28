@@ -35,7 +35,7 @@ class LandingPage extends React.Component {
         <Header
           color="transparent"
           routes={dashboardRoutes}
-          brand="Shomolu.com"
+          brand="PayBucket"
           rightLinks={< HeaderLinks />}
           fixed
           changeColorOnScroll={{

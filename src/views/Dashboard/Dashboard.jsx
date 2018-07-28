@@ -44,7 +44,7 @@ class ProfilePage extends React.Component {
     this
       .props
       .history
-      .replace('/login');
+      .replace('/');
   }
 
   toggleDashboard(){
@@ -103,46 +103,37 @@ class ProfilePage extends React.Component {
           }}
         >
           <div className="row" style={{ width: '100%' }}>
-            <GridItem style={{ height: '100vh', display: 'flex', paddingTop: '70px'}}>
+            <GridItem style={{ height: '89vh', display: 'flex', paddingTop: '70px'}}>
               <GridItem xs={3} style={{ height: '100%', color: 'white', textTransform : 'Capitalize'}}>
                 <div style={{ height: '25%', paddingTop: '2rem'}}>
                   <h3>
-                    namemy namemy
+                    Bola Bankola
                   </h3>
                 </div>
-                <div style={{ height: '60%' }}>
+                <div style={{ height: '27%', display: 'inline-grid' }}>
                   <Button color="light" simple onClick={this.toggleDashboard} style={{ fontSize: '17px' }}>Dashboard</Button>
                   <Button color="light" simple onClick={this.toggleFundCash} style={{ fontSize: '17px' }}>Bucket</Button>
                   <Button color="light" simple onClick={this.toggleTransaction} style={{ fontSize: '17px' }}>Pending Bucket</Button>
                   <Button color="light" simple onClick={this.handleLogout} style={{ fontSize: '17px' }}>Sign Out</Button>
                 </div>
-                <div style={{ height: '15%', paddingBottom: '2rem' }}>
-                  <span>
-                    namemy namemy
-                  </span>
-                </div>
               </GridItem>
               <GridItem xs={9} style={{ height: '100%'}}>
-                {Dashboard === true &&<div>
-                                      <CardHeader color="primary" className={classes.cardHeader}>
-                                        <h2>Bola foods</h2>
-                                      </CardHeader>
-                                       <CardBody>
-                                          <p>Amount</p>
-                                          <span>$0</span>
-                                        </CardBody>
-                                        </div>}
+                {Dashboard === true && 
+                <div style={{ height: '80%', paddingTop: '2rem', backgroundColor: 'white' }}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                    <h2>Bola foods</h2>
+                  </CardHeader>
+                    <CardBody >
+                      <p>Amount</p>
+                      <span>$0</span>
+                    </CardBody>
+                    </div>}
                 {FundCash === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
                   <Bucket rowHeaders={['Customer', 'Amount', 'Date']} rows={['','','']} />
                 </div>}
                 { Transaction === true && <div style={{ height: '80%', backgroundColor: 'white' }}>
                   <Bucket rowHeaders={['Customer', 'Amount', 'Date']} rows={['','','']}/>
                 </div>}
-                <div style={{ height: '15%', paddingTop: '1rem', paddingBottom: '2rem', position: 'sticky', float: 'right' }}>
-                  <span style={{ paddingTop: '2rem', color: 'white', textTransform: 'Capitalize' }}>
-                    namemy namemy
-                  </span>
-                </div>
               </GridItem>
             </GridItem>
           </div>

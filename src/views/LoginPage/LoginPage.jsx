@@ -95,20 +95,24 @@ const Login = ({ classes, Login, state }) => (
       <h2>Login</h2>
     </CardHeader>
     <CardBody>
-      <div style={{display: 'inline-block'}}>
-        <label htmlFor="username">Username</label>
-        <input ref={(input) => this.username = input} type="text" required />
-        <label htmlFor="password">Password</label>
-        <input ref={(input) => this.password = input} type="password" required />
-        <Button
-          color="primary"
-          onClick={(e)=>Login(e)}
-          className={classes.navLink}
-          type="submit"
-        >
+      <TextField
+        id="Username"
+        label="Username"
+        value={state.username}
+        margin="normal"
+      />
+      <TextField
+        id="Password"
+        label="Password"
+        className={classes.textField}
+        value={state.password}
+        margin="normal"
+      />
+      <Link to={"/Dashboard"} className={classes.link}>
+        <Button color="primary" className={classes.navLink}>
           Login
-      </Button>
-      </div>
+        </Button>
+      </Link>
     </CardBody>
     <CardFooter className={classes.cardFooter}>
       <ListItem className={classes.listItem}>

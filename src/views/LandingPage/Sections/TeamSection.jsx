@@ -27,7 +27,7 @@ class TeamSection extends React.Component {
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
                 <h4 className={classes.cardTitle}>
-                  Enter your Card Info
+                  Enter your Bank Info
                 </h4>
                 <CardBody>
                   <div className={classes.description}>
@@ -39,7 +39,7 @@ class TeamSection extends React.Component {
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
                 <h4 className={classes.cardTitle}>
-                  Fund your Visual Card
+                  Integrate and Start Making Transitions
                 </h4>
                 <CardBody>
                   <div className={classes.description}>
@@ -51,7 +51,7 @@ class TeamSection extends React.Component {
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
                 <h4 className={classes.cardTitle}>
-                  Start Making Transitions
+                  Recieve Your money on Customer delivery.
                 </h4>
                 <CardBody>
                   <div className={classes.description}>
