@@ -40,10 +40,7 @@ class Components extends React.Component {
             <GridContainer>
               <GridItem>
                 <div className={classes.brand}>
-                  <h1 className={classes.title}>Shomolu.com</h1>
-                  <h3 className={classes.subtitle}>
-                    Protecting your card and providing an alternative is what we do.
-                  </h3>
+                  <h3 className={classes.title}>Protecting your card and providing an alternative is what we do.</h3>
                 </div>
               </GridItem>
             </GridContainer>

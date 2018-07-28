@@ -56,7 +56,7 @@ function HeaderLinks({ ...props }) {
         >
           <Button
             color="transparent"
-            href="/About"
+            href="#About"
             className={classes.navLink}
           >
             About
@@ -72,7 +72,7 @@ function HeaderLinks({ ...props }) {
         >
          <Link to={"/login-page"} className={classes.link}>
           <Button color="transparent" className={classes.navLink}>
-            View Login Page
+            Login
           </Button>
         </Link>
         </Tooltip>

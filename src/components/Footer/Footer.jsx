@@ -32,7 +32,7 @@ function Footer({ ...props }) {
                 className={classes.block}
                 target="_blank"
               >
-                Creative Tim
+                Shomolu.com
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
@@ -65,16 +65,14 @@ function Footer({ ...props }) {
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
           <a
-            href="https://www.creative-tim.com"
+            href="https://www.shomolu.com"
             className={aClasses}
             target="_blank"
           >
-            Creative Tim
+            Shomolu.com
           </a>{" "}
-          for a better web.
+          for a secure Transition.
         </div>
       </div>
     </footer>
